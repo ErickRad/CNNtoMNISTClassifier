@@ -17,7 +17,7 @@ class DatasetMNIST:
         self.transformacao = transforms.Compose([
             transforms.ToTensor(),
             transforms.Normalize((0.5,), (0.5,))
-        ])
+        ]) #?
         self.setDeTreino = datasets.MNIST(root=self.pasta_de_dados, train=True, download=True, transform=self.transformacao)
         self.setDeTeste = datasets.MNIST(root=self.pasta_de_dados, train=False, download=True, transform=self.transformacao)
 
@@ -43,7 +43,7 @@ class CNN(nn.Module):
         x = torch.relu(self.conv3(x))
         x = torch.max_pool2d(x, 2)
         
-        x = torch.flatten(x, 1)
+        x = torch.flatten(x, 1) #?
         
         x = torch.relu(self.fc1(x))
         x = self.fc2(x)
